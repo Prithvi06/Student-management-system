@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>-->
+    <script src="https://kit.fontawesome.com/2ddc12ee04.js" crossorigin="anonymous"></script>
+<style>
+body {
+  margin: 0;
+overflow: hidden;
+  color:black;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: #204a7d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active,.divul a.active  {
+  background-color: #04AA6D;
+  color: white;
+}
+li a:hover,button:hover,.divul a:hover,.b1:hover,.b2:hover,.b3:hover,.b4:hover{  background-color: #fcc308;}
+
+li a:hover:not(.active) ,button:hover,.divul a:hover,{
+  background-color: #fcc308;
+  color: white;
+}
+
+
+.divul{margin-left: 20%;
+  margin-top: 0;
+  list-style-type: none;
+  overflow: hidden;
+    background-color: #333;
+}
+.divul a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;float: left;
+}
+.divul span{
+  color: white;
+  font-size: 20px;
+  padding-left:50px;
+  margin-top: 100px;
+}
+
+.div1,.div2,.div3{display:inline-block;
+border:1px solid black;
+width:300px;
+height:90px;
+font-size:20px;
+font-family: Arial, Helvetica, sans-serif;
+text-align:center;
+padding:35px;
+ box-sizing: border-box;
+
+}
+.div1{
+background-color:#ffbc03;}
+.div2{
+background-color:#ff4203;}
+.div3{
+background-color:  #36b300;
+}
+
+table{width:100%;
+  border:1px solid black;table-layout: fixed;
+ border-collapse: collapse;}
+
+th{border: 1px solid black;
+  font-size:18px;
+  height:40px;
+ font-family: Arial, Helvetica, sans-serif;
+ width:50%;text-align: left;
+padding-left:20px;}
+
+td{font-size:15px;
+    width: 50%;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    height:40px;
+    padding-left:20px;
+}
+tr:nth-child(even){
+  background-color:#e1e6e6;
+}
+button{float:right;}
+button a{text-decoration:none;color:white;
+}
+td button{
+  background-color:#04aad4;
+  float:left;
+  font-size:20px;
+  border:none;
+  height:30px;
+  width: 100px;
+  border-radius:8px;
+
+}
+#a1,#a2,#a3{
+  text-decoration:none;
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:20px;
+}
+.b1,.b2,.b3,.b4{
+  border-radius:5px;
+  height:30px;
+  width:170px;
+  text-align: center;
+  background-color:#009c29;
+  padding-top: 9px;
+  float: right;
+
+}h2{color: white;}
+
+.b5{border-radius:5px;
+height:40px;
+width:300px;
+text-align: center;
+background-color:#009c29;
+padding-top: 9px;
+margin-bottom: 20px;
+float: none;
+margin: auto;
+}
+.b5 a{text-decoration: none;font-size: 25px;color: white;}
+
+.b5:hover{
+  background-color: red;
+}
+#tr3 td a:hover{
+   color:#fc9803;
+   font-size: 25px;
+}
+.success{
+  margin-left:23%;
+  margin-top: 2%;
+  font-size: 20px;
+  color:blue;
+
+}
+.Sprofile_div,.tprofile_div{
+  width: 60%;
+  height: 270px;
+  background-image: url("https://www.stockvault.net/data/2020/10/02/279352/preview16.jpg");
+color: white;
+  border-radius: 8px;
+}
+
+.std_img_div{width: 300px;
+    height: 400px;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/286/114/401/light-background-wallpaper-preview.jpg");
+color: white;
+border-radius: 8px;
+}
+
+.profile_img{ width: 140px;
+    height: 130px;
+    margin-left:24%;
+    margin-top: 10%;
+    border: 10px solid #2283bf;
+    border-radius: 50%;}
+
+.student td,.teacher td{
+  border:1px solid transparent;
+  border-collapse: collapse;
+}
+.student tr:nth-child(even),.teacher tr:nth-child(even){background-color: transparent; }
+.other_info{
+    background-image: url("https://www.stockvault.net/data/2020/10/02/279352/preview16.jpg");
+  border-radius: 8px;
+  color: white;
+
+}
+.other_info p{
+  padding-left:5%;  padding-right:3%;padding-bottom: 5%;
+}
+.other_info h3{
+  padding-left:5%; padding-top: 2%;
+  color: black;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}.dropdown:hover .dropdown-content {margin-top: 2%;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+{%if super or head %} <!-- SUPER LOGIN-->
+
+      <ul>
+        <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+        {%if super%}
+          <li><a href="{% url 'Mheadmaster' %}"><i class="fas fa-user-graduate"></i>&ensp;Manage Headmaster</a>
+        {%endif%}
+        {%if head%}
+          <li><a href="{% url 'head_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+        {%endif%}
+        <li><a href="{% url 'Mteacher' %}"><i class="fas fa-user-graduate"></i>&ensp;&nbsp;Manage Teacher</a></li>
+        <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp;Manage Student</a></li>
+        <li><a href="{% url 'Mclassl' %}"><i class="fas fa-users"></i>&ensp;Classes / Lecture</a></li>
+          <li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;Department</a></li>
+          <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+      </ul>
+{%endif%}
+
+{%if teacher %}
+      <ul>
+        <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+          <li><a href="{% url 'teacher_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;&nbsp;My Profile</a>
+        <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp; Students Details</a></li>
+        <li><a href="{% url 'teacher_lecture' %}"><i class="fas fa-users"></i>&ensp;&nbsp;My class / Lecture</a></li>
+          <!--<li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;&ensp;Department</a></li>-->
+          <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;&nbsp;Sports Game</a></li>
+      </ul>
+{%endif%}
+
+{%if student %}
+      <ul>
+        <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;&emsp;&ensp;Dashboard</a></li>
+          <li><a href="{% url 'student_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+        <li><a href="{% url 'student_lecture' %}"><i class="fas fa-users"></i>&ensp;&nbsp;My Lecture</a></li>
+        <li><a href="{%url 'taskv' %}"><i class="fas fa-tasks"></i>&ensp;&ensp;My Task</a></li>
+          <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+      </ul>
+{%endif%}
+
+
+<div class="divul">
+       <a style="font-size:20px; color:blue;background-color: #fcc308;">STUDENT MANAGEMENT SYSTEM</a>
+       {%if login%}
+        <a class="active" href="{%url 'login'%}" style="float:right;font-size:20px;">Login</a>
+        {%else%}
+          <a class="active" href="{%url 'logout'%}" style="float:right;font-size:20px;">Logout</a>
+        {%endif%}
+
+</div>
+
+<div class="success">
+  {%if success%}
+    {%for msg in messages%}
+      {{msg}}
+    {%endfor%}
+  {%endif%}
+</div>
+
+<div style="margin-left:37%;padding-top:5%;">
+        {%if super_student_view or head_student_view%}
+              <div class="div1" style="margin-left:20%;"><i class="fas fa-graduation-cap"></i> {{scount}} Total Student</div>
+        {%endif%}
+        {%if super_teacher_view or head_teacher_view%}
+                <div class="div2" style="margin-left:20%;"><i class="fas fa-user-graduate"></i> {{tcount}}  Total Teacher</div>
+        {%endif%}
+
+        {%if tsports%}
+              <div class="div3" style="margin-left:20%;"><i class="fas fa-running"></i>&ensp;{{tsports}}  Total Sports</div>
+        {%endif%}
+</div>
+
+
+
+
+
+<div class="table" style="margin-left:23%;margin-right:3%;"><hr>
+
+
+  {%if head_profile %}<!--head Profile view-->
+      <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-graduation-cap"></i>&ensp;Your Profile</h2>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+        </thead>
+              <tr>
+                <td>  {{head_data.name}}</td>
+                <td>{{head_data.email}}</td>
+              </tr>
+      </table>
+
+  {%endif%}
+
+{%if teacher_profile%}
+
+
+  <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-graduation-cap"></i>&ensp;Your Profile</h2><br>
+      <div class="std_img_div" style="float:left;">
+          <img class="profile_img" src="https://img.freepik.com/free-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg?size=626&ext=jpg" alt="student dp">
+          <h3 style="margin-left:100px;margin-top:10px;">{{teacher_data.name}}</h3><hr>
+          <p style="margin-left:5%;"><b>Teacher Id : </b> 123456789</p>
+          <p style="margin-left:5%;"><b>Post : </b> {{teacher_data.post}}</p>
+          <p style="margin-left:5%;"><b>Address : </b> ------</p>
+      </div>
+    <div class="tprofile_div" style="float:left;margin-left:5%;height:240px;" >
+
+        <h2 style="width:50%;color:black;margin-top:2%;margin-left:5%;"><i class="far fa-clone">&ensp;<b>General Information...</b></i></h2>
+            <table class="teacher"style="width:90%;margin-left:5%;margin-right:5%;margin-top:2%;margin-bottom:10%;">
+                    <tr>
+                      <td style="width:20%;" ><b>Name</b></td>
+                      <td style="width:1%;">:</td>
+                        <td style="width:30%;">  {{teacher_data.name}}</td>
+                    </tr>
+                    <tr><td style="width:20%;"><b>Post</b></td>
+                      <td style="width:1%;">:</td>
+                      <td style="width:30%;">{{teacher_data.post}}</td>
+
+                    <tr>
+                      <td style="width:20%;" ><b>Email</b></td>
+                      <td style="width:1%;">:</td>
+                      <td style="width:30%;">{{teacher_data.email}}</td>
+                    </tr>
+
+                    </tr>
+            </table>
+        <div class="other_info">
+              <h3 ><i class="far fa-clone pr-1"></i>&ensp;Other Information</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        </div>
+    </div>
+{%endif%}
+
+
+{%if student_profile%}
+
+
+  <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-graduation-cap"></i>&ensp;Your Profile</h2><br>
+      <div class="std_img_div" style="float:left;">
+          <img class="profile_img" src="https://img.freepik.com/free-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg?size=626&ext=jpg" alt="student dp">
+          <h3 style="margin-left:110px;margin-top:10px;">{{student_data.name}}</h3><hr>
+          <p style="margin-left:5%;"><b>Student Id : </b> {{student_data.roll_no}}</p>
+          <p style="margin-left:5%;"><b>Class : </b> {{student_data.Class}}</p>
+          <p style="margin-left:5%;"><b>Address : </b> ------</p>
+      </div>
+    <div class="Sprofile_div" style="float:left;margin-left:5%;" >
+
+        <h2 style="width:50%;color:black;margin-top:2%;margin-left:5%;"><i class="far fa-clone">&ensp;<b>General Information...</b></i></h2>
+            <table class="student"style="width:90%;margin-left:5%;margin-right:5%;margin-top:2%;margin-bottom:10%;">
+                    <tr>
+                      <td style="width:20%;" ><b>Name</b></td>
+                      <td style="width:1%;">:</td>
+                        <td style="width:30%;">  {{student_data.name}}</td>
+                    </tr>
+                    <tr><td style="width:20%;"><b>Roll No.</b></td>
+                      <td style="width:1%;">:</td>
+                      <td style="width:30%;">{{student_data.roll_no}}</td>
+
+                    <tr>
+                      <td style="width:20%;"><b>Class</b></td>
+                      <td style="width:1%;">:</td>
+                      <td style="width:30%;">{{student_data.Class}}</td>
+                    </tr>
+                    <tr>
+                      <td style="width:20%;" ><b>Email</b></td>
+                      <td style="width:1%;">:</td>
+                      <td style="width:30%;">{{student_data.email}}</td>
+                    </tr>
+
+                    </tr>
+            </table>
+        <div class="other_info">
+              <h3 ><i class="far fa-clone pr-1"></i>&ensp;Other Information</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        </div>
+  </div>
+
+
+{%endif%}
+
+
+{%if  super_head_view%} <!--super user headmaster view -->
+      <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-graduation-cap"></i>&ensp;Headmaster Details</h2>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+            {%if super%}
+              <th style="width:30%">Update </th>
+              <th  style="width:30%">Delete</th>
+              {%endif%}
+        </thead>
+          {%for head in head_data%}
+              <tr>
+                <td>  {{head.name}}</td>
+                <td>{{head.email}}</td>
+                {%if super%}
+                <td style="width:30%"><button type="button" name="button"  ><a href="/hupdate/{{head.id}}">Update</a></button></td>
+                <td style="width:30%;"><button type="button" name="button"  ><a href="/delete/{{head.id}}" >Delete</a></button></td>
+                {%endif%}
+              </tr>
+          {%endfor%}
+      </table>
+      <br>{%if super%}
+          <div class="b2">
+            <a href="{%url 'Rheadmaster'%}" id="a2">Add Headmaster</a>
+          </div>
+          {%endif%}
+
+  {%endif%}
+
+
+
+{%if  super_teacher_view or head_teacher_view%}  <!--super user teacher view-->
+        <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;margin:0;"><i class="fas fa-user-graduate"></i>&ensp;Teacher's Details</h2>
+            <table >
+              <thead>
+                <th><b>Name</b></th>
+                <th>Post</th>
+                <th><b>Email</b></th>
+                {%if super or head%}
+                <th style="width:30%">Update </th>
+                <th  style="width:30%">Delete</th>
+                {%endif%}
+              </thead>
+
+              {%for teacher in teacher_data%}
+                  <tr>
+                    <td>{{teacher.name}}</td>
+                    <td>{{teacher.post}}</td>
+                    <td>  {{teacher.email}}</td>
+                      {%if super or head%}
+                            <td><button type="button" name="button" ><a href="/tupdate/{{teacher.id}}" >Update</a></button></td>
+                            <td><button type="button" name="button"  ><a href="/delete/{{teacher.id}}" >Delete</a></button></td>
+                        {%endif%}
+                  </tr>
+              {%endfor%}
+
+            </table><br>
+         {%if super or head%}
+              <div class="b1">
+                  <a href="{%url 'Rteacher'%}" id="a1" >Add Teacher</a>
+              </div>
+        {%endif%}
+{%endif%}
+
+
+{%if  super_student_view or head_student_view or teacher_student_view%} <!--super user student view-->
+    <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-graduation-cap"></i>&ensp;Student's Details</h2>
+            <table class="studentt">
+              <thead>
+                <th>Roll No.</th>
+                <th>Name</th>
+                <th style="width:20%;">Class</th>
+                <th>Email</th>
+                {%if super or head%}
+                    <th style="width:30%">Update </th>
+                    <th  style="width:30%">Delete</th>
+                {%endif%}
+                {%if teacher%}
+                  <th>Task Details</th>
+
+                {%endif%}
+              </thead>
+              {%for student in student_data%}
+                    <tr>
+                      <td>{{student.roll_no}}</td>
+                      <td>  {{student.name}}</td>
+                      <td style="width:20%;">{{student.Class}}</td>
+                      <td>{{student.email}}</td>
+                      {%if super or head%}
+                          <td><button type="button" name="button"  ><a href="/supdate/{{student.id}}">Update</a></button></td>
+                          <td><button type="button" name="button"  ><a href="/delete/{{student.id}}" >Delete</a></button></td>
+                      {%endif%}
+
+                      {%if teacher%}
+                        <td> <button type="submit" style="width:130px;" ><a href="/tsk_detail/{{student.id}}">Task Details</a></button></td>
+
+                      {%endif%}
+                    </tr>
+              {%endfor%}
+            </table><br>
+            {%if teacher%}
+            <div class="b2">
+              <td><a href="/tassign" id="a2">Assign Task</a></td>
+            </div>
+
+            {%endif%}
+          {%if super or head%}
+              <div class="b2">
+                <a href="{%url 'Rstudent'%}" id="a2">Add Student</a>
+              </div>
+          {%endif%}
+{%endif%}
+
+
+{%if  super_classl_view or head_classl_view%}  <!--super user view class lecture data-->
+        <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-users"></i>&ensp;Classes Details </h2>
+                <table >
+                  <thead>
+                    <th>Teacher Name  </th>
+                      <th>Teacher Id </th>
+                  </thead>
+                  {%for teacher in teacher_class_data%}
+                  <tr id="tr3">
+                    <td><a href="/gclass/{{teacher.id}}" style="text-decoration:none;">{{teacher.name}}</a></td>
+                    <td><a href="/gclass/{{teacher.id}}" style="text-decoration:none;">{{teacher}}</a></td>
+                  </tr>
+                  {%endfor%}
+                </table><br>
+        {%if super or head%}
+            <div class="b4">
+              <a href="{%url 'Aclass'%}" id="a2">Add class</a>
+            </div>
+        {%endif%}
+{%endif%}
+
+
+
+{%if teacher_class%}  <!-- particular teacher class and lecture-->
+        <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-users"></i>&ensp;Classes Details </h2>
+        <table >
+              <thead>
+                <th>class</th>
+                <th>Lecture</th>
+                <th>Teacher Id</th>
+                <th>Starting Time</th>
+                <th >Ending Time</th>
+              </thead>
+              {%for class in tclass_data%}
+              <tr>
+                <td>{{class.class_t}}</td>
+                <td>{{class.lecture}}</td>
+                <td>{{class.teacher}}</td>
+                <td >{{class.start_time}}</td>
+                <td >{{class.end_time}}</td>
+
+              </tr>
+              {%endfor%}
+        </table>
+{%endif%}
+
+
+{%if student_lecture%}
+      <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-users"></i>&ensp;Your Lectures </h2>
+      <table >
+            <thead>
+              <th>Teacher name</th>
+              <th>Lecture</th>
+
+              <th>Start Time</th>
+              <th>End Time</th>
+
+
+            </thead>
+            {%for class in Classl_details.values%}
+            <tr>
+                <td>{{class.Teacher}}</td>
+                  <td>{{class.Lecture}}</td>
+              <td>{{class.Start_time}}</td>
+              <td>{{class.End_time}}</td>
+            </tr>
+                  {%endfor%}
+      </table>
+{%endif%}
+
+
+
+{%if  super_sports_view or head_sports_view or teacher_sports_view or student_sports_view%}  <!--super user sports view -->
+      <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-running"></i>&ensp;Sport's Details</h2>
+            <table>
+              <thead>
+                <th>Name</th>
+                <th>No of Players </th>
+                <th>Playing Hours</th>
+                <th>Teacher Name</th>
+              </thead>
+              {%for sports in sport_data%}
+              <tr>
+                <td>{{sports.Name}}</td>
+                <td>{{sports.No_of_Players}}</td>
+                <td> {{sports.Playing_hours}}</td>
+                <td>{{sports.Teacher_name}}</td>
+              </tr>
+              {%endfor%}
+            </table><br>
+        {%if super or head%}
+            <div class="b3">
+                <a href="{% url 'Add_sports' %}" id="a3">Add Sports</a>
+            </div>
+        {%endif%}
+
+{%endif%}
+
+
+{%if  super_get_class or head_get_class%}  <!-- super user get access class-->
+      <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-users"></i>&ensp;Classes Details </h2>
+      <table id="class_table">
+            <thead>
+              <th style="width:15%;">Class</th>
+              <th style="width:20%;">Lecture</th>
+              <th style="width:25%;">Teacher name</th>
+              <th style="width:25%;">Starting Time</th>
+              <th style="width:25%;">Ending Time</th>
+              {%if super or head%}
+              <th style="width:35%;"><b>Update &emsp;&emsp;&emsp;&emsp;Delete</b></th>
+              {%endif%}
+
+            </thead>
+            {%for class in class_data%}
+            <tr>
+              <td style="width:20%;">{{class.class_t}}</td>
+              <td style="width:20%;">{{class.lecture}}</td>
+              <td style="width:25%;">{{class.teacher}}</td>
+              <td style="width:25%;">{{class.start_time}}</td>
+              <td style="width:25%;">{{class.end_time}}</td>
+              {%if super or head%}
+                  <td style="width:35%;"><button type="button" name="button"  ><a href="/cupdate/{{class.id}}">Update</a></button>
+                  <button type="button" name="button" style="margin-left:30px;" ><a href="/cdelete/{{class.id}}" >Delete</a></button></td>
+              {%endif%}
+
+            </tr>
+            {%endfor%}
+
+      </table><br>
+      <div class="b3">
+          <a href="{% url 'Mclassl' %}" id="a3">Back</a>
+      </div>
+{%endif%}
+
+{%if student_task_view%}
+  <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-tasks"></i>&ensp;Your Tasks </h2>
+
+  <table >
+        <thead>
+          <th>Tasks Description</th>
+          <th style="width:20%;">Submission Last date</th>
+          <th style="width:15%;">Total Marks</th>
+          <th style="width:15%;">Obtained Marks</th>
+        {%if results or status%}  <th style="width:20%;">Task Status</th>{%endif%}
+        </thead>
+        {%for task in task_data.values%}
+          <tr>
+                {%if task.description  %}
+                  <td>{{task.description}}</td>
+                {%else%}
+                  <td><button type="button" name="button" style="width:150px;"><a href="{{task.pdf.url}}" target="_blank">download pdf</a> </button> </td>
+                {%endif%}
+            <td style="width:20%;">{{task.sub_date}}</td>
+            <td style="width:15%;">{{task.t_marks}}</td>
+            <td style="width:15%;">{{task.marks}}</td>
+            {%if task.result == None or task.status == 'Pending' %}
+                <td style="width:20%;"> <div class="dropdown">
+                            <button class="dropbtn">Status
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="/tsk_Pstatus_assign/{{id}}/{{task.id}}">In-Progress</a>
+                              <a href="/tsk_Cstatus_assign/{{id}}/{{task.id}}">Complete</a>
+                            </div>
+                      </div>
+                </td>
+            {%endif%}
+        </tr>
+      {%endfor%}
+  </table>
+
+{%elif empty_task%}
+ <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-tasks"></i>&ensp;You Have No Task Assign </h2>
+
+{%endif%}
+
+{%if tasks_data_result%}
+    <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-tasks"></i>&ensp;Tasks Details </h2>
+
+    <table>
+      <thead>
+        <th>Task Description</th>
+        <th style="width:30%;">Total Marks</th>
+        <th>Obtained Marks</th>
+        <th style="width:20%;">Status</th>
+        <th>Submitted Result</th>
+        {%if o_marks == 0 and status%}<th>Giving Marks </th>{%endif%}
+      </thead>
+      {%for taskr in tasks_data_result.values%}
+          <tr>
+            {%if taskr.description%}
+              <td>{{taskr.description}}</td>
+            {%else%}
+              <td><button type="button" name="button" style="width:150px;"> <a href="{{taskr.pdf.url}}" target="_blank">Download Pdf</a></button></td>
+             {%endif%}
+             <td style="width:30%;">{{taskr.t_marks}}</td>
+            <td>{{taskr.o_marks}}</td>
+            <td style="width:25%;">{{taskr.status}}</td>
+            {%if taskr.resultp%}
+              <td><button type="button" name="button" style="width:150px;"> <a href="{{taskr.resultp.url}}" target="_blank">Download Pdf</a></button></td>
+            {%else%}
+              <td>{{taskr.result}}</td>
+
+            {%endif%}
+              {% if taskr.status == "Complete" %}
+                        {%if mform and taskr.id == id %}
+
+                                <td><div class="search-container" >
+                                                        <form method="POST">
+                                                          <input type="text" placeholder="Marks.." name="marks" style="width: 90px;border:3px solid green;margin-top:4px;border-radius:5px;">
+                                                          <button type="submit"style="float:right;width: 80px;">Submit</button>
+                                                          {%csrf_token%}
+                                                        </form>
+                                </td>
+                        {%else%}
+
+                            {%if taskr.o_marks == 0%}  <td> <button type="submit" style="width:130px;" ><a href="/gmarks/{{id}}/{{taskr.id}}">Give Marks</a></button></td>{%endif%}
+                        {%endif%}
+
+              {%endif%}
+          </tr>
+      {%endfor%}
+    </table><br>/
+    <div class="b3">
+        <a href="{% url 'Mstudent' %}" id="a3">Back</a>
+    </div>
+{%elif empty_tsk_detail%}
+  <h2 style="text-align:center;background-color:#2283bf;border:1px solid black;"><i class="fas fa-tasks"></i>&ensp; No Task Details </h2>
+  <div class="b3">
+      <a href="{% url 'Mstudent' %}" id="a3">Back</a>
+  </div>
+{%endif%}
+
+{%if department%}
+<div class="b5">
+  <a href="{%url 'Mteacher'%}" >Faculty Department</a>
+</div><br>
+<div class="b5">
+    <a href="{%url 'Mstudent'%}">Students Department</a>
+</div><br>
+<div class="b5">
+    <a href="{%url 'Msports'%}">Sports Department</a>
+</div>
+{%endif%}
+</div>
+
+</body>
+</html>
+/

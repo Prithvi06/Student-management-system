@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/2ddc12ee04.js" crossorigin="anonymous"></script>
+    <title></title>
+    <style>
+
+    .container {
+      margin-top: 50px;
+      margin-left: 40%;
+      border-left: 5px solid green;
+      border-radius: 20px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width: 40%;
+
+    }
+  .container input[type=text],.container input[type=password]{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid black;
+       border-radius:6px;
+      color: black;
+    }
+
+.container input[type=submit]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;width: 250px;
+  padding: 16px 32px;
+  margin: 4px 2px;border-radius: 5px;
+}
+.container a{background-color: #4CAF50;
+border: none;
+color: white;
+padding: 14px 32px;
+margin-left: 30px;
+text-decoration: none;
+border-radius: 5px;
+float: right;
+margin-top: 8px;
+
+}
+
+
+body {
+  margin: 0;
+  color:black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: #204a7d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active,.divul a.active  {
+  background-color: #04AA6D;
+  color: white;
+}
+li a:hover,button:hover,.divul a:hover,.b1:hover,.b2:hover,.b3:hover,.b4:hover{  background-color: #fcc308;}
+
+li a:hover:not(.active) ,button:hover,.divul a:hover,{
+  background-color: #fcc308;
+  color: white;
+}
+
+
+.divul{margin-left: 20%;
+  margin-top: 0;
+  list-style-type: none;
+  overflow: hidden;
+    background-color: #333;
+}
+.divul a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;float: left;
+}
+.divul span{
+  color: white;
+  font-size: 20px;
+  padding-left:50px;
+  margin-top: 100px;
+}
+    </style>
+
+  </head>
+  <body>
+<div class="panel">
+
+  {%if super or head%}   <!-- SUPER user register teacher-->
+        <ul>
+          <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+          {%if super%}
+            <li><a href="{% url 'Mheadmaster' %}"><i class="fas fa-user-graduate"></i>&ensp;Manage Headmaster</a>
+          {%endif%}
+          {%if head%}
+            <li><a href="{% url 'head_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+          {%endif%}
+          <li><a href="{% url 'Mteacher' %}"><i class="fas fa-user-graduate"></i>&ensp;&nbsp;Manage Teacher</a></li>
+          <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp;Manage Student</a></li>
+          <li><a href="{% url 'Mclassl' %}"><i class="fas fa-users"></i>&ensp;Classes / Lecture</a></li>
+            <li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;Department</a></li>
+            <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+        </ul>
+  {%endif%}
+
+  <div class="divul">
+       <a style="font-size:20px; color:blue;background-color: #fcc308;">STUDENT MANAGEMENT SYSTEM</a>
+         {%if login%}
+          <a class="active" href="{%url 'login'%}" style="float:right;font-size:20px;">Login</a>
+          {%else%}
+            <a class="active" href="{%url 'logout'%}" style="float:right;font-size:20px;">Logout</a>
+          {%endif%}
+
+  </div>
+
+
+</div>
+
+
+<div class="container">
+
+    <form method="post" >
+      <h1>Registration Form </h1>
+      Name:<input type="text" name="name" value=""><br><br>
+      email:<input type="text" name="email" value=""><br><br>
+      password:<input type="password" name="password" value=""><br><br>
+      post:<input type="text" name="post" value=""><br><br>
+      <input type="submit" value="Register"> <a href="{%url 'Mteacher'%}">Back</a>
+      {%csrf_token%}
+
+    </form>
+  </div>
+
+  </body>
+</html>

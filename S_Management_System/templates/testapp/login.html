@@ -1,0 +1,20 @@
+{% extends 'testapp/base.html' %}
+
+{% load crispy_forms_filters %}
+{% block content %}
+<div class="container">
+
+
+<form method="post" align="left">
+  <h1 style="text-align:center;">Login</h1><hr>
+  {% for message in messages %}
+         {{ message }}
+{% endfor %}
+  {{ form }}
+    {% csrf_token %}
+  <br><br><button type="submit" class="btn btn-primary" style="width:100px;height:50px;">Login</button>
+  <a href="/reset_password"  class="btn btn-primary" style="height:50px;margin-top:0px;">Forget Password</a>
+
+</form>
+</div>
+{% endblock %}

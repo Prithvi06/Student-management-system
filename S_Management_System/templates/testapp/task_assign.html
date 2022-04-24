@@ -1,0 +1,63 @@
+{%extends 'testapp/base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+<div class="panel">
+  {%if teacher %}
+        <ul>
+          <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+            <li><a href="{% url 'teacher_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;&nbsp;My Profile</a>
+          <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp; Students Details</a></li>
+          <li><a href="{% url 'teacher_lecture' %}"><i class="fas fa-users"></i>&ensp;&ensp;My class / Lecture</a></li>
+            <!--<li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;&ensp;Department</a></li>-->
+            <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+        </ul>
+  {%endif%}
+  {%if student %}
+        <ul>
+          <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;&emsp;&ensp;Dashboard</a></li>
+            <li><a href="{% url 'student_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+          <li><a href="{% url 'student_lecture' %}"><i class="fas fa-users"></i>&ensp;&nbsp;My Lecture</a></li>
+          <li><a href="{%url 'taskv' %}"><i class="fas fa-tasks"></i>&ensp;&ensp;My Task</a></li>
+            <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+        </ul>
+  {%endif%}
+  <div class="divul">
+       <a style="font-size:20px; color:blue;background-color: #fcc308;">STUDENT MANAGEMENT SYSTEM</a>
+         {%if login%}
+          <a class="active" href="{%url 'login'%}" style="float:right;font-size:20px;">Login</a>
+          {%else%}
+            <a class="active" href="{%url 'logout'%}" style="float:right;font-size:20px;">Logout</a>
+          {%endif%}
+  </div>
+
+</div>
+{%if task_assign%}
+        <div class="container" style="margin-top:1%;">
+                <h1 style="text-align:center;">Task Assignment Form </h1>
+                <form method="post" enctype="multipart/form-data">
+                   <b>Class:</b><input type="number" name="Class" value="">
+                   <b>Description:</b><textarea name="description" rows="5" cols="60"></textarea><br>
+                   <b>pdf:</b><br><input type="file" name="pdf" value=""><br><br>
+                   <b>Submission Date:</b><br><input type="date" name="sub_date" value=""><br><br>
+                   <b>Total Marks</b><input type="number" name="t_marks" value=""><br>
+                    {% csrf_token %}
+                  <input type="submit" value="Sumbit">
+                   <a href="{%url 'Mstudent'%}">Back</a>
+                </form>
+        </div>
+{%else%}
+<div class="container"style="height:460px;" >
+        <h1 style="text-align:center;">Assignment Submit Form </h1>
+        <form method="post" enctype="multipart/form-data">
+            <b>solution :</b>   <textarea name="solution" rows="8" cols="70"></textarea><br>
+              <b>pdf :</b><br> <input type="file" name="pdf1" value=""><br><br>
+              <input type="submit" value="Sumbit">
+               <a href="{%url 'taskv'%}">Back</a>
+               {% csrf_token %}
+        </form>
+</div>
+
+{%endif%}
+
+{%endblock%}

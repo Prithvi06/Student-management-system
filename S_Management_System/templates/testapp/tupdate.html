@@ -1,0 +1,54 @@
+{% extends 'testapp/base.html' %}
+
+{% block content %}
+
+<div class="panel">
+  {%if super or head %}   <!-- SUPER user update teacher-->
+        <ul>
+          <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+          {%if super%}
+            <li><a href="{% url 'Mheadmaster' %}"><i class="fas fa-user-graduate"></i>&ensp;Manage Headmaster</a>
+          {%endif%}
+          {%if head%}
+            <li><a href="{% url 'head_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+          {%endif%}
+          <li><a href="{% url 'Mteacher' %}"><i class="fas fa-user-graduate"></i>&ensp;&nbsp;Manage Teacher</a></li>
+          <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp;Manage Student</a></li>
+          <li><a href="{% url 'Mclassl' %}"><i class="fas fa-users"></i>&ensp;Classes / Lecture</a></li>
+            <li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;Department</a></li>
+            <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+        </ul>
+  {%endif%}
+
+
+  <div class="divul">
+     <a style="font-size:20px; color:blue;background-color: #fcc308;">STUDENT MANAGEMENT SYSTEM</a>
+     {%if login%}
+      <a class="active" href="{%url 'login'%}" style="float:right;font-size:20px;">Login</a>
+      {%else%}
+        <a class="active" href="{%url 'logout'%}" style="float:right;font-size:20px;">Logout</a>
+      {%endif%}
+
+  </div>
+
+</div>
+
+<div class="tcontainer">
+
+    <h1> Update Form</h1>
+    {% for message in messages %}
+           {{ message }}
+    {% endfor %}
+     <form  method="post">
+
+       {%csrf_token%}
+
+       Name:<input type="text" name="name" value="{{user.name}}"><br><br>
+       email:<input type="text" name="email" value="{{user.email}}"><br><br>
+       password:<input type="password" name="password" value=""><br><br>
+         post:<input type="text" name="post" value="{{user.post}}"><br><br>
+       <input type="submit" value="Update Record">
+        <a href="{%url 'Mteacher'%}">Back</a>
+     </form>
+</div>
+ {% endblock %}

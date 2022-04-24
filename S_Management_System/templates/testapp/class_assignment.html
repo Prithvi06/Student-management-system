@@ -1,0 +1,47 @@
+{% extends 'testapp/base.html' %}
+
+{% load crispy_forms_filters %}
+{% block content %}
+<div class="panel">
+
+  {%if super or head %}   <!-- SUPER user register teacher-->
+        <ul>
+          <li><a class="active" href="#home"><i class="bi bi-speedometer2"></i>&ensp;Dashboard</a></li>
+          {%if super%}
+            <li><a href="{% url 'Mheadmaster' %}"><i class="fas fa-user-graduate"></i>&ensp;Manage Headmaster</a>
+          {%endif%}
+          {%if head%}
+            <li><a href="{% url 'head_profile' %}"><i class="fas fa-user-graduate"></i>&ensp;&ensp;My Profile</a>
+          {%endif%}
+          <li><a href="{% url 'Mteacher' %}"><i class="fas fa-user-graduate"></i>&ensp;&nbsp;Manage Teacher</a></li>
+          <li><a href="{% url 'Mstudent' %}"><i class="fas fa-graduation-cap"></i>&ensp;Manage Student</a></li>
+          <li><a href="{% url 'Mclassl' %}"><i class="fas fa-users"></i>&ensp;Classes / Lecture</a></li>
+            <li><a href="{%url 'department' %}"><i class="fas fa-users"></i>&ensp;Department</a></li>
+            <li><a href="{% url 'Msports' %}"><i class="fas fa-running"></i>&emsp;Sports Game</a></li>
+        </ul>
+  {%endif%}
+
+  <div class="divul">
+       <a style="font-size:20px; color:blue;background-color: #fcc308;">STUDENT MANAGEMENT SYSTEM</a>
+         {%if login%}
+          <a class="active" href="{%url 'login'%}" style="float:right;font-size:20px;">Login</a>
+          {%else%}
+            <a class="active" href="{%url 'logout'%}" style="float:right;font-size:20px;">Logout</a>
+          {%endif%}
+
+  </div>
+
+</div>
+
+<div class="container" style="margin-top:15px;">
+  <h1>Class Assignment Form </h1>
+  <form method="post">
+    {{ form.as_p }}
+      {% csrf_token %}
+    <input type="submit" value="Sumbit">
+     <a href="{%url 'Mclassl'%}">Back</a>
+  </form>
+
+</div>
+
+{%endblock%}
